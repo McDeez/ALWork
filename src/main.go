@@ -14,7 +14,7 @@ func main() {
 	config.LoadConfig()
 	// LoadFilters will pull in all the Regex's from the filters.json
 	// file and pre-compile them for use
-	filter.LoadFilters()
+	filter.LoadFilters("./")
 
 	// Create a handler for all incoming traffic: send it to DirectIt
 	http.HandleFunc("/", direct.DirectIt)
