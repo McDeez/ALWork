@@ -10,12 +10,12 @@ dectection for the QueryString as well.
 ### Detection 
 The two stages of the filter are focused around:
 1. QueryStrings that cannot contain malicious code are allowed to pass
-..* Zero Query String length
-..* URIs that contain just alpha numeric and forward slashes
+... Zero Query String length
+... URIs that contain just alpha numeric and forward slashes
 2. Deeper inspection of all other packets for detecting:
-..* Single quote text block based SQL Injection attacks (name' OR 'a'='a')
-..* SQL Statement detection (ALTER, CREATE, DELETE, etc)
-..* Statement Breaks (a simple semi-colon)
+... Single quote text block based SQL Injection attacks (name' OR 'a'='a')
+... SQL Statement detection (ALTER, CREATE, DELETE, etc)
+... Statement Breaks (a simple semi-colon)
 
 The main assumption here is that firstly the quick regex's will take a crack at the Query String. If it matches one of those Regexes it will pass on the query as 
 those are marked as "safe" queries, ones that could not contain a SQL Injection vulnerability. Depending on the amount and type of traffic the webserver would see
