@@ -8,7 +8,8 @@ This super simple SQL Injection Filter uses compiled Regex read in from a JSON f
 
 ### Detection 
 
-The two stages of the filter are focused around:
+The two stages of the filter are focused around  
+
 1. QueryStrings that cannot contain malicious code are allowed to pass
   * Zero Query String length
   * URIs that contain just alpha numeric and forward slashes
@@ -22,26 +23,6 @@ The main assumption here is that firstly the quick regex's will take a crack at 
 ### Considerations for Longer Term
 
 In Making this a true solution and not one that has just been developed for 4 hours, I would load in the regexes from a database (perhaps Mongo, or MySQL,), and use a notification system to ensure that regex vulnerability signatures added to the database could be added and compiled into the running product without any downtime. Considerations for a multi-server proxy would be taken into account with this database as well. Auditing attacks and providing firewalls with possible compromised IPs and hosts would also be considered. Currently the logging is fairly simple as it just outputs all logs as the same level. Some unit testing might be required on the filter.go file to provide some level of assurance for the main filtering algorythims. Currently I'm relying on integration level testing broken as the project is so small I cannot justify a true unit level test setup, especially before an API is setup. As such a real API would have to be designed and layed out for this proxy to allow log extraction, reporting, and auditing information.
-
-
-### Directory Structure
-
-ROOT
-  integrationTest.sh        //Integration tests for positive and negative cases
-  src                       //All the Go source code is in here
-    config
-      config.go             //Congfiguration 
-    direct
-      direct.go             //Directs requests
-    filter
-      filter.go             //Filters requests
-    filters.json            //The signatures
-    config.json             //The config
-    main.go                 //Main code to run it
-  webServer                 //Simple NodeJS WebServer
-    package.json
-    server.js
-
 
 
 ### How to Run 
