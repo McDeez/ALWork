@@ -48,8 +48,13 @@ var shallowRegex []*regexp.Regexp
 // TODO: Enable a file update notification system
 // that will reload the filters when the filters.json
 // file changes.
-func LoadFilters() {
-	file, _ := os.Open("filters.json")
+func LoadFilters(projectRoot string) {
+	var file *os.File
+	if projectRoot != "" {
+		file, _ = os.Open(projectRoot + "filters.json")
+	} else {
+		file, _ = os.Open("filters.json")
+	}
 	decoder := json.NewDecoder(file)
 	err := decoder.Decode(&filterObj)
 	if err != nil {

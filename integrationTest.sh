@@ -23,11 +23,9 @@ declare -a listOfGoodURLs=(
 declare -a listOfBadURLs=(
   "curl -I -s $host:$port/?name=name%27"                                            #name'
   "curl -I -s $host:$port/?name=name%27%20OR%20%27a%27%3D%27a"                      #name' OR 'a'='a
-  #"curl -I -s $host:$port/?name=name%2527%2520OR%2520%2527a%2527%253D%2527a"        #Double url encoded (name' OR 'a'='a)
   "curl -I -s $host:$port/?name=name%27%20OR%20%27b%27%3D%27b"                      #name' OR 'b'='b
   "curl -I -s $host:$port/?name=name%27%20OR%20%27bob%27%3D%27bob"                  #name' OR 'bob'='bob
   "curl -I -s $host:$port/?name=name%27)%3B%20DELETE%20FROM%20items%3B%20--"        #name'); DELETE FROM items; --
-  "curl -I -s $host:$port/?name=name%27)%3B%20DELETEFROM%20items%3B%20--"           #name'); DELETEFROM items; --
   "curl -I -s $host:$port/?name=name%27)%3B%20DELETE%20FROM%20users%3B%20--"        #name'); DELETE FROM users; --
   "curl -I -s $host:$port/?name=name%27)%3B%20DELETE%20FROM%20people%3B%20--"       #name'); DELETE FROM people; --
 )
