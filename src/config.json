@@ -1,0 +1,4 @@
+{
+  "TargetHost": "http://localhost:3000",
+  "ListeningPort": ":8080"
+}

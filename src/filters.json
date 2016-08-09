@@ -1,0 +1,28 @@
+{
+  "Signatures": [
+    {
+      "Name": "SQL Text Blocks",
+      "Regex": "'(''[^'])*"
+    }, {
+      "Name": "SQL Statement Breaks",
+      "Regex": ";"
+    }, {
+      "Name": "SQL Statements",
+      "Regex": "\bALTER|CREATE|DELETE|DROP|EXEC|INSERT|MERGE|SELECT|UPDATE|UNION\b"
+    }
+  ],
+  "Shallows": [
+    {
+      "Name": "Empty",
+      "Regex": "^$"
+    }, {
+      "Name": "Just slash",
+      "Regex": "^/$"
+    }, {
+      "Name": "Just slashes and names, no params or special chars",
+      "Regex": "^[/A-Za-z0-9]*$"
+    }
+  ]
+}
+      
+
