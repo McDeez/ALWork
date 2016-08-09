@@ -3,11 +3,13 @@
 
 
 ### High Level
-This super simple SQL Injection Filter uses compiled Regex read in from a JSON file to provide a very simplistic two stage inspection system for SQL Vulnerabilities.
+
+...This super simple SQL Injection Filter uses compiled Regex read in from a JSON file to provide a very simplistic two stage inspection system for SQL Vulnerabilities..
 Currently the only vulnerabilities designed and loaded are focused around SQL injection in the Query string, however it would be possible to get any other vulnerability 
 dectection for the QueryString as well. 
 
 ### Detection 
+
 The two stages of the filter are focused around:
 1. QueryStrings that cannot contain malicious code are allowed to pass
 ... Zero Query String length
@@ -25,6 +27,7 @@ low level inspection of the request, as well as a more robust body and payload c
 modifications there are slight and could be done quite easily.
 
 ### Considerations for Longer Term
+
 In Making this a true solution and not one that has just been developed for 4 hours, I would load in the regexes from a database (perhaps Mongo, or MySQL,), and use a 
 notification system to ensure that regex vulnerability signatures added to the database could be added and compiled into the running product without any downtime. 
 Considerations for a multi-server proxy would be taken into account with this database as well. Auditing attacks and providing firewalls with possible compromised IPs 
@@ -35,6 +38,7 @@ to allow log extraction, reporting, and auditing information.
 
 
 ### Directory Structure
+
 ROOT
   integrationTest.sh        //Integration tests for positive and negative cases
   src                       //All the Go source code is in here
@@ -54,15 +58,18 @@ ROOT
 
 
 ### How to Run 
+
 Running this project is simple. Prereqs:
+
 1. GoLang is installed
 2. NodeJS is installed (if you are running the build in webserver
 
 Steps:
+
 1. cd into ROOT/webServer
 2. Run 'npm install' (no quotes)
 3. Run 'npm start'
-..* This will start the built in webServer that allow for fairly simple testing
+...This will start the built in webServer that allow for fairly simple testing
 4. In a new window, cd into ROOT/src
 5. Run 'go build'
 6. Execute the compiled binary (by default it's listed as "src")
